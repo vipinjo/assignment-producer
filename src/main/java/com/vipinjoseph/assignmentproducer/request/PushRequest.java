@@ -1,4 +1,4 @@
-package com.vipinjoseph.assignmentproducer;
+package com.vipinjoseph.assignmentproducer.request;
 
 public class PushRequest {
 

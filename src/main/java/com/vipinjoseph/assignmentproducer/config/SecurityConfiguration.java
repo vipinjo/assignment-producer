@@ -1,4 +1,4 @@
-package com.vipinjoseph.assignmentproducer;
+package com.vipinjoseph.assignmentproducer.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

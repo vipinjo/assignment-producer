@@ -1,15 +1,15 @@
-package com.vipinjoseph.assignmentproducer;
+package com.vipinjoseph.assignmentproducer.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vipinjoseph.assignmentproducer.request.PushRequest;
 
 @Component
 public class ValueService {
@@ -21,16 +21,12 @@ public class ValueService {
 
 	private final RabbitTemplate rabbitTemplate;
 	
-	private final ConfigurableApplicationContext context;
-	
 	private final ObjectMapper objectMapper;
 
 	@Autowired
-	public ValueService(RabbitTemplate rabbitTemplate, ConfigurableApplicationContext context,
-			ObjectMapper objectMapper) {
+	public ValueService(RabbitTemplate rabbitTemplate, ObjectMapper objectMapper) {
 		super();
 		this.rabbitTemplate = rabbitTemplate;
-		this.context = context;
 		this.objectMapper = objectMapper;
 	}
 	
@@ -42,9 +38,6 @@ public class ValueService {
 		} catch (JsonProcessingException e) {
 			LOGGER.error("Parsing Exception", e);
 		}
-		
-		//context.close();
-		
 	}
 
 }
